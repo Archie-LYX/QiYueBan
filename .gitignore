@@ -1,0 +1,61 @@
+# Unity generated folders (keep Assets and their .meta files)
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Bb]uild/
+/[Bb]uilds/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/.cache/
+
+# IDE and generated solution/project files
+/.vs/
+/.vscode/
+/.idea/
+/.gradle/
+/*.csproj
+/*.sln
+/*.slnx
+/*.unityproj
+/*.suo
+/*.user
+/*.userprefs
+/*.pidb
+/*.booproj
+/*.pdb
+/*.mdb
+/*.opendb
+/*.VC.db
+/*.tmp
+/*.log
+
+# Unity generated asset caches and crash reports
+/Assets/AssetStoreTools/
+/Assets/AssetStoreTools.meta
+/Assets/AddressableAssetsData/*/*.bin*
+/Assets/StreamingAssets/aa/
+/Assets/StreamingAssets/aa.meta
+/sysinfo.txt
+/crash.dmp
+/mono_crash.*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local credentials and signing keys
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.key
+
+# Generated review output from existing editor verification tools
+# These directories contain screenshots, reports and local request files.
+/review/
