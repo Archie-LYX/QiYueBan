@@ -389,8 +389,8 @@ public class GrassPaperPuzzleGame : MonoBehaviour
 
         selectedText = AddText("Selected",transform,new Vector2(343,196),
             new Vector2(380,42),"",22,TextAnchor.MiddleCenter,Ink);
-        resultText = AddText("Result",transform,new Vector2(328,-198),
-            new Vector2(450,110),"",17,TextAnchor.MiddleCenter,Ink);
+        resultText = AddText("Result",transform,new Vector2(335,-187),
+            new Vector2(450,90),"",17,TextAnchor.MiddleCenter,Ink);
 
         MakeButton("Up",new Vector2(342,107),"↑",()=>MoveSelected(0,-1));
         MakeButton("Left",new Vector2(274,42),"←",()=>MoveSelected(-1,0));
@@ -402,8 +402,8 @@ public class GrassPaperPuzzleGame : MonoBehaviour
             Undo,new Vector2(148,42));
         MakeButton("Restart",new Vector2(410,-270),"重来",
             Restart,new Vector2(128,42));
-        nextButton = MakeButton("Next",new Vector2(506,-197),"下一关 →",
-            NextLevel,new Vector2(140,46));
+        nextButton = MakeButton("Next",new Vector2(550,-270),"下一关 →",
+            NextLevel,new Vector2(140,42));
 
         for (int i = 0; i < GrassPaperPuzzleRules.Levels.Length; i++)
         {
