@@ -38,6 +38,7 @@ public class GrassPaperPuzzleGame : MonoBehaviour
     private Button nextButton;
     private Button rotateButton;
     private readonly List<GameObject> boardItems = new List<GameObject>();
+    private readonly List<Outline> pieceOutlines = new List<Outline>();
     private readonly List<Button> levelButtons = new List<Button>();
     private int selectedIndex = -1;
     private bool awardedThisAttempt;
@@ -109,7 +110,7 @@ public class GrassPaperPuzzleGame : MonoBehaviour
         selectedIndex = index;
         statusText.text = "已选择纸张 " + Rules.Level.pieces[index].name +
             " · 方向键滑动 / R 旋转 / Z 撤销";
-        RenderBoard();
+        RefreshSelectionOutlines();
         RefreshText();
     }
 
@@ -255,6 +256,7 @@ public class GrassPaperPuzzleGame : MonoBehaviour
         foreach (GameObject go in boardItems)
             if (go != null) { go.SetActive(false); Destroy(go); }
         boardItems.Clear();
+        pieceOutlines.Clear();
 
         GrassPaperLevel level = Rules.Level;
         board.sizeDelta = new Vector2(level.width * cellSize, level.height * cellSize);
@@ -316,10 +318,23 @@ public class GrassPaperPuzzleGame : MonoBehaviour
             outline.effectDistance = i == selectedIndex ?
                 new Vector2(3f,-3f) : new Vector2(1f,-1f);
 
+            pieceOutlines.Add(outline);
             GrassPaperPieceDrag drag = rt.gameObject.AddComponent<GrassPaperPieceDrag>();
             drag.Initialize(this,i);
             AddText("PaperLabel",rt,Vector2.zero,rt.sizeDelta,
                 Rules.Level.pieces[i].name,23,TextAnchor.MiddleCenter,Ink);
+        }
+    }
+
+    private void RefreshSelectionOutlines()
+    {
+        for (int i = 0; i < pieceOutlines.Count; i++)
+        {
+            Outline o = pieceOutlines[i];
+            if (o == null) continue;
+            o.effectColor = i == selectedIndex ? Accent : new Color(.54f,.42f,.27f);
+            o.effectDistance = i == selectedIndex ?
+                new Vector2(3f,-3f) : new Vector2(1f,-1f);
         }
     }
 
